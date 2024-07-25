@@ -11,6 +11,7 @@ CENTER_Y = RESOLUTION_Y / 2 - (a/2)
 
 mouse = Controller()
 
+
 def main(Square_side):
     current_x = CENTER_X
     current_y = CENTER_Y
@@ -24,21 +25,21 @@ def main(Square_side):
             current_x += 1
             mouse.position = (current_x, current_y)
             time.sleep(0.001)  # Пауза для замедления движения (можно убрать)
-        Square_side -= 10 
+        Square_side -= 15 
 
         # Движение вниз
         for _ in range(Square_side):
             current_y += 1
             mouse.position = (current_x, current_y)
             time.sleep(0.001)
-        Square_side -= 10 
+        Square_side -= 15
 
         # Движение влево
         for _ in range(Square_side):
             current_x -= 1
             mouse.position = (current_x, current_y)
             time.sleep(0.001)
-        Square_side -= 10 
+        Square_side -= 15
 
         # Движение вверх
         for _ in range(Square_side):
@@ -46,7 +47,7 @@ def main(Square_side):
             mouse.position = (current_x, current_y)
             time.sleep(0.001)
 
-        Square_side -= 10  # Уменьшаем сторону квадрата
+        Square_side -= 15  # Уменьшаем сторону квадрата
 
     mouse.release(Button.left)
     print("Well done!")

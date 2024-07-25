@@ -1,6 +1,7 @@
 import pyautogui
 import time
 import keyboard
+import random
 from threading import Thread
 
 RESOLUTION_X = 1920
@@ -8,7 +9,7 @@ RESOLUTION_Y = 1080
 CENTER_X = RESOLUTION_X / 2 
 CENTER_Y = RESOLUTION_Y / 2
 
-running = False  # Переменная состояния
+running = False  
 
 print("Press 's' to start")
 
@@ -28,24 +29,31 @@ def main():
             # pyautogui.moveTo(CENTER_X, CENTER_Y, duration=1, tween=pyautogui.easeOutQuad)
             MoveToButton("Buttons.png")
             OpenLong()
+            print()
+        if running:
             MoveToButton("Buttons.png")
             OpenShort()
+            print()
         time.sleep(0.1)  
 
 def OpenLong():
+    X_random =random.randint(-30,30)
+    Y_random =random.randint(-15,15)
     print("Wait for Click")
-    pyautogui.move(-30, 0, duration=0.8, tween=pyautogui.easeOutQuad)
+    pyautogui.move(-100 + X_random, 0 + Y_random, duration=0.8, tween=pyautogui.easeOutQuad)
     pyautogui.click(button="left")
     print("Long was open")
-    time.sleep(10)
+    time.sleep(8)
     print("Long was closed")
 
 def OpenShort():
+    X_random =random.randint(-30,30)
+    Y_random =random.randint(-15,15)
     print("Wait for Click")
-    pyautogui.move(30, 0, duration=0.8, tween=pyautogui.easeOutQuad)
+    pyautogui.move(100 + X_random, 0 + Y_random, duration=0.8, tween=pyautogui.easeOutQuad)
     pyautogui.click(button="left")
     print("Short was open")
-    time.sleep(10)
+    time.sleep(8)
     print("Short was closed")
 
 def MoveToButton(img):
